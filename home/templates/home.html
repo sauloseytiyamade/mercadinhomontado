@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Seja Bem-Vindo(a) {% endblock %}
+
+{% block main %}
+    <div class="row mt-2">
+      <div class="col-sm">
+      </div>
+      <div class="col-sm">
+        {% if user.is_authenticated %}
+        {% else %}
+            <p class="text-right"><a href="{% url 'login' %}"><button type="button" class="btn btn-success">Login</button></a></p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-sm">
+        <img src="{% static 'mercadinho.jpg'%}" width="60%" style="margin-left: 2%;">
+        <h1 class="text-success">Seja Bem-Vindo(a)</h1>
+      </div>
+    </div>
+{% endblock %}

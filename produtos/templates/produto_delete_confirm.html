@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Excluir Produto {% endblock %}
+
+
+{% block main %} 
+    <div class="row mb-2">
+        <div class="col-sm-1 offset-sm-3">
+            <a href="{% url 'produtos_list' %}"><img src="{% static 'mercadinho.jpg'%}" width="99%"></a>
+        </div>
+        <div class="col-sm-8 text-left mt-2">
+            <span class="fs-1">Exclusão de produto</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="card border-success mb-3 mt-3">
+                    <div class="card-body text-danger">
+                    <h5 class="card-title">Tem certeza que deseja excluir o produto: {{produto.nome}}?</h5>
+                    <p class="card-text">Caso você selecione excluir os dados serão removidos e não poderão ser mais acessados</p>
+                    <button type="submit" class="btn btn-success">Excluir</button>
+                    <a href="{% url 'produtos_list' %}" class="btn btn-success">Voltar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

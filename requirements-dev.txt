@@ -1,0 +1,9 @@
+asgiref
+dj-database-url
+dj-static
+Django
+django-bootstrap-form
+python-decouple
+sqlparse
+static3
+tzdata

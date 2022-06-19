@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+
+{% block title %} Login {% endblock %}
+
+
+{% block main %} 
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <img src="{% static 'mercadinho.jpg'%}" width="30%">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 text-center offset-sm-4">
+            <form method="post">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <button class="btn btn-success mt-3" type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

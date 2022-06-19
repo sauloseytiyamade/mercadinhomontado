@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Produtos {% endblock %}
+
+{% block main %}
+    <div class="row mb-2">
+      <div class="col-sm-2">
+        <a href="{% url 'produtos_list' %}"><img src="{% static 'mercadinho.jpg'%}" width="40%"></a>
+      </div>
+      <div class="col-sm-5 offset-sm-3 text-left mt-2">
+        <span class="fs-1">Produtos</span>
+      </div>
+      <div class="col-sm-2 mt-4 text-right">
+        <a href="{% url 'mylogout' %}" class="text-success"><i class="bi bi-box-arrow-in-right fs-3"></i></a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <table class="table table-success table-hover">
+          <thead class="table-warning">
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col" class="text-center">Quantidade</th>
+              <th scope="col" class="text-center">Tipo</th>
+              <th scope="col" class="text-center">Preço</th>
+              <th scope="col" class="text-center">Observação</th>
+              <th scope="col" class="text-center">Alterar</th>
+              <th scope="col" class="text-center">Excluir</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for produto in produtos%}
+              <tr>
+                <td>{{produto.nome}}</td>
+                <td class="text-center">{{produto.quantidade}}</td>
+                <td class="text-center">{{produto.tipo}}</td>
+                <td class="text-center">{{produto.preco}}</td>
+                <td class="text-center">{{produto.observacao|default:"N/A"}}</td>
+                <td class="text-center"><a href="{% url 'produtos_update' produto.id %}" class="text-dark"><i class="bi bi-pen"></i></a></td>
+                <td class="text-center"><a href="{% url 'produtos_delete' produto.id %}" class="text-dark"><i class="bi bi-trash"></i></a></td>
+              </tr>
+            {% endfor%}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <a href="{% url 'produtos_create' %}"><button type="button" class="btn btn-success">Adicionar novo produto</button></a>
+      </div>
+    </div>
+{% endblock %}
