@@ -1,4 +1,4 @@
-#Mercadinho montado
+## Mercadinho montado
 
 Este projeto foi feito para o curso de Django do Gregory Pacheco através da plataforma da udemy.
 
